@@ -21,7 +21,8 @@ class SimpleTimerTest
         printf("test_single_shot: succeeded. _count = %d\n", _count);
       }
 
-      _timer.stop();
+      if (_timer.is_running())
+        _timer.stop();
     }
 
     void test_periodic()
@@ -39,7 +40,8 @@ class SimpleTimerTest
         printf("test_periodic: succeeded. _count = %d\n", _count);
       }
 
-      _timer.stop();
+      if (_timer.is_running())
+        _timer.stop();
     }
 
     void expired_handler()
