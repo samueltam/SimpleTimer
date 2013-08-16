@@ -1,3 +1,4 @@
+
 #include "simple_timer.h"
 
 class SimpleTimerTest
@@ -10,7 +11,7 @@ class SimpleTimerTest
     {
       _count = 0;
       _timer.start(5, this, &SimpleTimerTest::expired_handler);
-      sleep(6);
+      boost::this_thread::sleep(boost::posix_time::seconds(6));
 
       if (_count != 1)
       {
@@ -29,7 +30,7 @@ class SimpleTimerTest
     {
       _count = 0;
       _timer.start_periodic(5, this, &SimpleTimerTest::expired_handler);
-      sleep(16);
+      boost::this_thread::sleep(boost::posix_time::seconds(16));
 
       if (_count != 3)
       {

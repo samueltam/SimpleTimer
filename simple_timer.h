@@ -115,13 +115,13 @@ private:
 
         boost::asio::io_service::work work(io__);
         io__.run();
-        io__.reset();
       }
     }
 
     static void stop_io()
     {
       halt_ = true;
+      io__.stop();
     }
 
 };
